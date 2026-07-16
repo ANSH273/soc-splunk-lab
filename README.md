@@ -6,7 +6,7 @@ for completing TryHackMe's SOC Immersive Simulator — Phishing Unfolding
 (Medium).
 
 ## Contents
-- [Full Report](../report/soc-splunk-lab-report.md)
+- [Full Report](../report/Project_Report_Splunk.md)
 
 ## Tools
 - Splunk Enterprise 10.4.0
