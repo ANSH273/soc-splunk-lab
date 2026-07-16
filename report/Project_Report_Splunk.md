@@ -28,7 +28,7 @@ sudo apt install curl wget python3 -y
 ```
 
 ![apt update output](../screenshots/01-apt-update.png)
-![apt upgrade complete](screenshots/02-apt-upgrade-complete.png)
+![apt upgrade complete](../screenshots/02-apt-upgrade-complete.png)
 
 To determine the host IP address for later forwarder configuration, net-tools was installed and `ifconfig` run:
 
@@ -36,7 +36,7 @@ To determine the host IP address for later forwarder configuration, net-tools wa
 ifconfig
 ```
 
-![ifconfig output](screenshots/03-ifconfig-output.png)
+![ifconfig output](../screenshots/03-ifconfig-output.png)
 
 This returned `inet 10.0.2.15` on interface `enp0s3` — the address the Windows Universal Forwarder would use to reach the Splunk indexer.
 
@@ -52,7 +52,7 @@ Splunk Enterprise 10.4.0 was downloaded from Splunk's official download portal a
 sudo dpkg -i splunk-10.4.0-f798d4d49089-linux-amd64.deb
 ```
 
-![Splunk dpkg install](screenshots/04-splunk-dpkg-install.png)
+![Splunk dpkg install](../screenshots/04-splunk-dpkg-install.png)
 
 The installer extracts Splunk to `/opt/splunk/`. The service was then started:
 
@@ -60,7 +60,7 @@ The installer extracts Splunk to `/opt/splunk/`. The service was then started:
 sudo /opt/splunk/bin/splunk start --run-as-root
 ```
 
-![Splunk first start warning](screenshots/05-splunk-first-start-warning.png)
+![Splunk first start warning](../screenshots/05-splunk-first-start-warning.png)
 
 On first start, this is a common first-run warning caused by both app directories being populated by default. It's addressed in Splunk community documentation, and resolving it is a standard step in single-instance setups that aren't intended as deployment servers or cluster managers.
 
@@ -68,11 +68,11 @@ On first start, this is a common first-run warning caused by both app directorie
 
 With the service running, the Splunk web interface was accessible at `http://127.0.0.1:8000`. Login was done using the admin credentials set during the initial start sequence.
 
-![Splunk login page](screenshots/06-splunk-login-page.png)
+![Splunk login page](../screenshots/06-splunk-login-page.png)
 
 After logging in, the home dashboard confirmed a clean deployment: Search & Reporting, Audit Trail, and Data Management apps visible, logged in as Administrator.
 
-![Splunk home dashboard](screenshots/07-splunk-home-dashboard.png)
+![Splunk home dashboard](../screenshots/07-splunk-home-dashboard.png)
 
 ### 2.3 Receiving Port Configuration
 
@@ -82,7 +82,7 @@ To accept log data forwarded from endpoints, Splunk was configured to listen on 
 2. Receive Data → Configure receiving → Add new
 3. Port: `9997`
 
-![Receive data port 9997](screenshots/08-receive-data-port-9997.png)
+![Receive data port 9997](../screenshots/08-receive-data-port-9997.png)
 
 Splunk confirmed the configuration with: *"Successfully saved '9997'"*. Port 9997 is the conventional Splunk-to-Splunk data channel.
 
@@ -94,11 +94,11 @@ A dedicated index was created to isolate Windows endpoint telemetry from other d
 2. Name: `windows11`
 3. Index data type: Events
 
-![New index windows11](screenshots/09-new-index-windows11.png)
+![New index windows11](../screenshots/09-new-index-windows11.png)
 
 The Manage Indexes screen confirmed the `windows11` index among 16 active indexes.
 
-![Forwarder management connected](screenshots/10-forwarder-management-connected.png)
+![Forwarder management connected](../screenshots/10-forwarder-management-connected.png)
 
 Scoping data to a named index keeps searches efficient and prevents Windows event data from being conflated with other log sources in the environment.
 
@@ -131,8 +131,8 @@ Via **Add Data → Select Forwarders → Select Source → Local Event Logs**, a
 
 The Security channel is the most operationally relevant for SOC work, containing events such as logon activity (4624, 4625), process creation (4688), and privilege escalation.
 
-![Add data - select forwarders](screenshots/11-add-data-select-forwarders.png)
-![Add data - select source event logs](screenshots/12-add-data-select-source-eventlogs.png)
+![Add data - select forwarders](../screenshots/11-add-data-select-forwarders.png)
+![Add data - select source event logs](../screenshots/12-add-data-select-source-eventlogs.png)
 
 **Input Settings:** Index set to `windows11`
 
@@ -144,11 +144,11 @@ The Security channel is the most operationally relevant for SOC work, containing
 - All five channels selected
 - Index: `windows11`
 
-![Add data review screen](screenshots/13-add-data-review-screen.png)
+![Add data review screen](../screenshots/13-add-data-review-screen.png)
 
 Splunk confirmed: **"Local event logs input has been created successfully."**
 
-![Add data success](screenshots/14-add-data-success.png)
+![Add data success](../screenshots/14-add-data-success.png)
 
 ### 3.3 Forwarder Verification
 
@@ -168,7 +168,7 @@ A search was run in **Apps → Search & Reporting** to confirm live data flow:
 index="*" EventCode=4624
 ```
 
-![Add data search screen bar](screenshots/search-screen-bar.png)
+![Add data search screen bar](../screenshots/search-screen-bar.png)
 
 **Result:** 1,868 events from ANSH-LAPTOP, all Security log entries for EventCode 4624 (Successful Logon), with complete field extraction:
 
@@ -182,7 +182,7 @@ TaskCategory=User Account Management
 Message=An account was successfully logged on.
 ```
 
-![Add data review screen](screenshots/search-screen-result.png)
+![Add data review screen](../screenshots/search-screen-result.png)
 
 The receiving port, index, and forwarder agent were all functioning correctly. Windows telemetry was confirmed flowing into the SIEM.
 
@@ -210,7 +210,7 @@ TryHackMe's SOC Immersive Simulator provides a realistic alert queue interface c
 
 ### Alert 1001 — Suspicious Parent-Child Process (False Positive)
 
-![Alert 1001 queue](screenshots/15-thm-alert-1001-queue.png)
+![Alert 1001 queue](../screenshots/15-thm-alert-1001-queue.png)
 
 **Datasource:** Sysmon (Event Code 1 — Process Create)
 **Host:** win-3459
@@ -228,9 +228,9 @@ TrustedInstaller.exe is a Windows system component responsible for managing soft
 
 **Classification: False Positive**
 
-![Alert 1001 close dialog](screenshots/16-thm-alert-1001-close-dialog.png)
+![Alert 1001 close dialog](../screenshots/16-thm-alert-1001-close-dialog.png)
 
-![Alert 1001 case report](screenshots/17-thm-alert-1001-case-report.png)
+![Alert 1001 case report](../screenshots/17-thm-alert-1001-case-report.png)
 
 **Case report:**
 
@@ -240,7 +240,7 @@ TrustedInstaller.exe is a Windows system component responsible for managing soft
 
 ### Alert 1005 — Phishing Email with Malicious Attachment (True Positive)
 
-![Alert 1005 details](screenshots/18-thm-alert-1005-details.png)
+![Alert 1005 details](../screenshots/18-thm-alert-1005-details.png)
 
 **Datasource:** Email
 **Type:** Phishing
@@ -264,7 +264,7 @@ direction:   inbound
 
 **Classification: True Positive — Escalated**
 
-![Alert 1005 case report](screenshots/19-thm-alert-1005-case-report.png)
+![Alert 1005 case report](../screenshots/19-thm-alert-1005-case-report.png)
 
 **Case report:**
 
@@ -278,7 +278,7 @@ direction:   inbound
 
 ### Alerts 1006 & 1009 — rdpclip.exe (False Positive)
 
-![Alert 1006/1009 rdpclip](screenshots/20-thm-alert-1006-1009-rdpclip.png)
+![Alert 1006/1009 rdpclip](../screenshots/20-thm-alert-1006-1009-rdpclip.png)
 
 **Datasource:** Sysmon (Event Code 1)
 **Host:** win-3453
@@ -294,7 +294,7 @@ rdpclip.exe is the Remote Desktop Clipboard utility, responsible for clipboard r
 
 **Classification: False Positive**
 
-![Summary accuracy dashboard](screenshots/21-thm-summary-accuracy.png)
+![Summary accuracy dashboard](../screenshots/21-thm-summary-accuracy.png)
 
 **Case report:**
 
@@ -313,7 +313,7 @@ A PowerShell process was detected executing a script from the user's Downloads d
 
 **Classification: True Positive — Escalated**
 
-![Alert 1020 PowerShell](screenshots/22-thm-alert-1020-powershell.png)
+![Alert 1020 PowerShell](../screenshots/22-thm-alert-1020-powershell.png)
 
 **Case report:**
 
@@ -326,7 +326,7 @@ A PowerShell process was detected executing a script from the user's Downloads d
 
 ### Alerts 1022 & 1024 — Network Drive Staging via PowerShell (True Positive)
 
-![Alert 1022/1024 network drive](screenshots/23-thm-alert-1022-1024-netdrive.png)
+![Alert 1022/1024 network drive](../screenshots/23-thm-alert-1022-1024-netdrive.png)
 
 **Datasource:** Sysmon (Event Code 1)
 **Type:** Execution
@@ -356,7 +356,7 @@ A network share containing financial records was mounted, accessed, and disconne
 
 **Classification: True Positive — Escalated**
 
-![Alert 1022/1024 case report](screenshots/24-thm-alert-1022-1024-case-report.png)
+![Alert 1022/1024 case report](../screenshots/24-thm-alert-1022-1024-case-report.png)
 
 **Case report:**
 
@@ -368,7 +368,7 @@ A network share containing financial records was mounted, accessed, and disconne
 - **List of Attack Indicators:** Execution via powershell.exe; sensitive network share access; the command lines used
 
 ### Alerts 1025–1034 — DNS Tunnelling / Data Exfiltration (True Positive, High Severity)
-![Alert 1025-1034 DNS tunneling](screenshots/25-thm-alert-1025-1034-dns.png)
+![Alert 1025-1034 DNS tunneling](../screenshots/25-thm-alert-1025-1034-dns.png)
 
 **Datasource:** Sysmon
 **Severity:** High
@@ -396,9 +396,9 @@ All five stages involved the same user (michael.ascot), the same host (win-3450)
 
 **Classification: True Positive — Escalated (High Severity)**
 
-![Alert 1025-1034 attack chain](screenshots/26-thm-alert-1025-1034-attack-chain.png)
+![Alert 1025-1034 attack chain](../screenshots/26-thm-alert-1025-1034-attack-chain.png)
 
-![Alert 1025-1034 case report](screenshots/27-thm-alert-1025-1034-case-report.png)
+![Alert 1025-1034 case report](../screenshots/27-thm-alert-1025-1034-case-report.png)
 
 **Case report:**
 
@@ -416,7 +416,7 @@ Correctly dismissing these requires familiarity with standard Windows process be
 
 18 of the 19 false positives were correctly dismissed. **Alert 1000** — a suspicious email from an external domain — was incorrectly classified as a true positive. The email matched several phishing surface indicators but lacked the payload and manipulation tactics that characterised Alert 1005. The correct classification was false positive. This misclassification accounts for the 95% false positive accuracy in the final score.
 
-![Alert 1000 false positive triage](screenshots/28-thm-alert-1000-fp-triage.png)
+![Alert 1000 false positive triage](../screenshots/28-thm-alert-1000-fp-triage.png)
 
 **Case report (submitted, later found incorrect):**
 
