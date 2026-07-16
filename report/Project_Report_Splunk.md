@@ -27,7 +27,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install curl wget python3 -y
 ```
 
-![apt update output](screenshots/01-apt-update.png)
+![apt update output](../screenshots/01-apt-update.png)
 ![apt upgrade complete](screenshots/02-apt-upgrade-complete.png)
 
 To determine the host IP address for later forwarder configuration, net-tools was installed and `ifconfig` run:
