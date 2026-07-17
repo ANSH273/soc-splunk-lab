@@ -1,7 +1,7 @@
 <svg viewBox="0 0 920 160" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
 
   <!-- Background -->
-  <rect width="920" height="160" fill="#ffffff00"/>
+  <rect width="920" height="160"/>
 
   <!-- Box 1: Windows 11 -->
   <rect x="20" y="30" width="185" height="95" rx="10" ry="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
