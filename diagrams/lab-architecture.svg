@@ -5,7 +5,7 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="1000" height="520" fill="#0f172a"/>
+  <rect x="0" y="0" width="1000" height="520"/>
 
   <text x="500" y="36" text-anchor="middle" fill="#f1f5f9" font-size="22" font-weight="700">Splunk SIEM Lab — Architecture</text>
   <text x="500" y="65" text-anchor="middle" fill="#f0f0f0" font-size="13">Local deployment (Parts 1–3) + TryHackMe hosted simulator (Part 4)</text>
