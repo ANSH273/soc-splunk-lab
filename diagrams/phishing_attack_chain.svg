@@ -1,0 +1,51 @@
+<svg viewBox="0 0 600 780" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="600" height="780" fill="#ffffff00"/>
+
+  <!-- Box 1: Phishing email delivered -->
+  <rect x="50" y="20" width="500" height="85" rx="12" ry="12" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="300" y="52" text-anchor="middle" font-size="16" font-weight="700" fill="#7b1a1a">Phishing email delivered</text>
+  <text x="300" y="76" text-anchor="middle" font-size="13" fill="#c0392b">Alert 1005 — ZIP attachment to michael.ascot</text>
+
+  <!-- Arrow 1 -->
+  <line x1="300" y1="105" x2="300" y2="138" stroke="#999" stroke-width="2"/>
+  <polygon points="300,145 294,133 306,133" fill="#999"/>
+
+  <!-- Box 2: PowerShell execution -->
+  <rect x="50" y="148" width="500" height="85" rx="12" ry="12" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="300" y="180" text-anchor="middle" font-size="16" font-weight="700" fill="#7b1a1a">PowerShell execution</text>
+  <text x="300" y="204" text-anchor="middle" font-size="13" fill="#c0392b">Alert 1020 — PowerView.ps1 run from Downloads\</text>
+
+  <!-- Arrow 2 -->
+  <line x1="300" y1="233" x2="300" y2="266" stroke="#999" stroke-width="2"/>
+  <polygon points="300,273 294,261 306,261" fill="#999"/>
+
+  <!-- Box 3: Network share mounted -->
+  <rect x="50" y="276" width="500" height="85" rx="12" ry="12" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="300" y="308" text-anchor="middle" font-size="16" font-weight="700" fill="#7b1a1a">Network share mounted</text>
+  <text x="300" y="332" text-anchor="middle" font-size="13" fill="#c0392b">Alert 1022 — Drive Z: mapped to SSF-FinancialRecords</text>
+
+  <!-- Arrow 3 -->
+  <line x1="300" y1="361" x2="300" y2="394" stroke="#999" stroke-width="2"/>
+  <polygon points="300,401 294,389 306,389" fill="#999"/>
+
+  <!-- Box 4: Share disconnected -->
+  <rect x="50" y="404" width="500" height="85" rx="12" ry="12" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="300" y="436" text-anchor="middle" font-size="16" font-weight="700" fill="#7b1a1a">Share disconnected</text>
+  <text x="300" y="460" text-anchor="middle" font-size="13" fill="#c0392b">Alert 1024 — drive removed after staging</text>
+
+  <!-- Arrow 4 -->
+  <line x1="300" y1="489" x2="300" y2="522" stroke="#999" stroke-width="2"/>
+  <polygon points="300,529 294,517 306,517" fill="#999"/>
+
+  <!-- Box 5: DNS tunnelling exfiltration -->
+  <rect x="50" y="532" width="500" height="85" rx="12" ry="12" fill="#fde8e8" stroke="#a93226" stroke-width="2"/>
+  <text x="300" y="564" text-anchor="middle" font-size="16" font-weight="700" fill="#7b1a1a">DNS tunnelling exfiltration</text>
+  <text x="300" y="588" text-anchor="middle" font-size="13" fill="#c0392b">Alerts 1025–1034 — encoded queries to haz4rdw4re.io</text>
+
+  <!-- Footer note -->
+  <text x="300" y="650" text-anchor="middle" font-size="12" fill="#666">Stages 2–5 share the same host (win-3450), user (michael.ascot),</text>
+  <text x="300" y="668" text-anchor="middle" font-size="12" fill="#666">and PowerShell session (PID 3728)</text>
+
+</svg>

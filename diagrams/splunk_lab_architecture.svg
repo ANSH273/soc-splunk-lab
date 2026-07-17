@@ -1,0 +1,38 @@
+<svg viewBox="0 0 920 160" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="920" height="160" fill="#ffffff00"/>
+
+  <!-- Box 1: Windows 11 -->
+  <rect x="20" y="30" width="185" height="95" rx="10" ry="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="112" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a5f">Windows 11</text>
+  <text x="112" y="95" text-anchor="middle" font-size="13" fill="#2563eb">ANSH-LAPTOP</text>
+
+  <!-- Arrow 1 -->
+  <line x1="205" y1="77" x2="248" y2="77" stroke="#999" stroke-width="2"/>
+  <polygon points="255,77 243,71 243,83" fill="#999"/>
+
+  <!-- Box 2: Forwarder -->
+  <rect x="258" y="30" width="185" height="95" rx="10" ry="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="350" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a5f">Forwarder</text>
+  <text x="350" y="95" text-anchor="middle" font-size="13" fill="#2563eb">Event log agent</text>
+
+  <!-- Arrow 2 -->
+  <line x1="443" y1="77" x2="486" y2="77" stroke="#999" stroke-width="2"/>
+  <polygon points="493,77 481,71 481,83" fill="#999"/>
+
+  <!-- Box 3: Splunk indexer -->
+  <rect x="496" y="30" width="185" height="95" rx="10" ry="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="588" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a5f">Splunk indexer</text>
+  <text x="588" y="95" text-anchor="middle" font-size="13" fill="#2563eb">Ubuntu, port 9997</text>
+
+  <!-- Arrow 3 -->
+  <line x1="681" y1="77" x2="724" y2="77" stroke="#999" stroke-width="2"/>
+  <polygon points="731,77 719,71 719,83" fill="#999"/>
+
+  <!-- Box 4: windows11 index -->
+  <rect x="734" y="30" width="165" height="95" rx="10" ry="10" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+  <text x="816" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#064e3b">windows11 index</text>
+  <text x="816" y="95" text-anchor="middle" font-size="13" fill="#059669">1,868 events</text>
+
+</svg>
